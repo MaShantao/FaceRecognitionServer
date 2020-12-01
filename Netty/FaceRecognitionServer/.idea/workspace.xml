@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="9b19478f-8a65-463d-ac08-c48633b5cc7e" name="Default Changelist" comment="" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="E:/maven-3.3.9" />
+        <option name="userSettingsFile" value="E:\maven-3.3.9\conf\settings.xml" />
+      </MavenGeneralSettings>
+    </option>
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="importAutomatically" value="true" />
+      </MavenImportingSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="1ZyxpzNctgl3pjEwn9Agl0jfx27" />
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/java/xin/marico/facerecogition/test" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="project.validation" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="xin.marico.facerecogition.test" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="G:\Java\IdeaProject\FaceRecognitionServer\src\main\java\xin\marico\facerecogition\test" />
+      <recent name="G:\Java\IdeaProject\FaceRecognitionServer\src\main\java\xin\marico\facerecogition\vo" />
+      <recent name="G:\Java\IdeaProject\FaceRecognitionServer\src\main\java\xin\marico\facerecogition\entity" />
+      <recent name="G:\Java\IdeaProject\FaceRecognitionServer\src\main\java\xin\marico\facerecogition\utils" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Application.Test2">
+    <configuration name="FaceRecognitionServer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="xin.marico.facerecogition.server.FaceRecognitionServer" />
+      <module name="FaceRecognitionServer" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="xin.marico.facerecogition.server.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RedisPub" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="xin.marico.facerecogition.test.RedisPub" />
+      <module name="FaceRecognitionServer" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="xin.marico.facerecogition.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="xin.marico.facerecogition.test.Test" />
+      <module name="FaceRecognitionServer" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="xin.marico.facerecogition.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Test2" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="xin.marico.facerecogition.test.Test2" />
+      <module name="FaceRecognitionServer" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="xin.marico.facerecogition.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UUIDUtils" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="xin.marico.facerecogition.utils.UUIDUtils" />
+      <module name="FaceRecognitionServer" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="xin.marico.facerecogition.utils.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Test2" />
+        <item itemvalue="Application.Test" />
+        <item itemvalue="Application.FaceRecognitionServer" />
+        <item itemvalue="Application.RedisPub" />
+        <item itemvalue="Application.UUIDUtils" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="9b19478f-8a65-463d-ac08-c48633b5cc7e" name="Default Changelist" comment="" />
+      <created>1585825321150</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1585825321150</updated>
+      <workItem from="1585825324523" duration="7419000" />
+      <workItem from="1585883123417" duration="849000" />
+      <workItem from="1585884009449" duration="150000" />
+      <workItem from="1585884195518" duration="1154000" />
+      <workItem from="1585896872809" duration="2843000" />
+      <workItem from="1586071090632" duration="5255000" />
+      <workItem from="1586089035239" duration="4679000" />
+      <workItem from="1586141498801" duration="19058000" />
+      <workItem from="1586186933941" duration="998000" />
+      <workItem from="1586223710710" duration="17988000" />
+      <workItem from="1586266914930" duration="3163000" />
+      <workItem from="1586399126026" duration="5965000" />
+      <workItem from="1586504994537" duration="6013000" />
+      <workItem from="1586574850772" duration="16413000" />
+      <workItem from="1586660707747" duration="2704000" />
+      <workItem from="1586680944223" duration="3714000" />
+      <workItem from="1586696174514" duration="4649000" />
+      <workItem from="1586742294136" duration="4035000" />
+      <workItem from="1587718059508" duration="651000" />
+      <workItem from="1587723917159" duration="303000" />
+      <workItem from="1590121703365" duration="15900000" />
+      <workItem from="1590373017310" duration="5215000" />
+      <workItem from="1590460325866" duration="3263000" />
+      <workItem from="1590574783086" duration="892000" />
+      <workItem from="1591342133905" duration="2152000" />
+      <workItem from="1591408199256" duration="4574000" />
+      <workItem from="1591412881701" duration="13013000" />
+      <workItem from="1591497050887" duration="2404000" />
+      <workItem from="1591578779644" duration="1966000" />
+      <workItem from="1591930046123" duration="4670000" />
+      <workItem from="1592039728486" duration="9982000" />
+      <workItem from="1592097671070" duration="11715000" />
+      <workItem from="1592362614893" duration="661000" />
+      <workItem from="1592443189628" duration="12309000" />
+      <workItem from="1592477603662" duration="22000" />
+      <workItem from="1592707500596" duration="89000" />
+      <workItem from="1592898927211" duration="597000" />
+      <workItem from="1593506750847" duration="1666000" />
+      <workItem from="1593780277877" duration="1135000" />
+      <workItem from="1593857051418" duration="1427000" />
+      <workItem from="1594112744135" duration="1241000" />
+      <workItem from="1595145678251" duration="197000" />
+      <workItem from="1599621625307" duration="4998000" />
+      <workItem from="1599654934810" duration="74000" />
+      <workItem from="1606194634118" duration="690000" />
+      <workItem from="1606286898960" duration="4016000" />
+      <workItem from="1606446261638" duration="640000" />
+      <workItem from="1606473968776" duration="65000" />
+      <workItem from="1606477065261" duration="3433000" />
+      <workItem from="1606534095256" duration="1313000" />
+      <workItem from="1606791108953" duration="244000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="XDebuggerManager">
+    <watches-manager>
+      <configuration name="Application">
+        <watch expression="buffer" />
+      </configuration>
+    </watches-manager>
+  </component>
+</project>

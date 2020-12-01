@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>人脸识别</title>
+</head>
+<script src="./jquery-3.3.1.min.js"></script>
+<style>
+  #capture {
+    position: absolute;
+    right: 190px;
+    bottom: -40px;
+
+  }
+
+  #video {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+
+  #img {
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+
+  .auto {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    height: 320px;
+    margin-top: -160px;
+  }
+
+  #recognizeFace {
+    position: absolute;
+    left: 150px;
+    bottom: -40px;
+  }
+
+  #uploadFace {
+    position: absolute;
+    left: 280px;
+    bottom: -40px;
+  }
+
+  button {
+    cursor: pointer;
+    margin: 0 auto;
+    border: 1px solid #f0f0f0;
+    background: #5CACEE;
+    color: #FFF;
+    width: 100px;
+    height: 36px;
+    line-height: 36px;
+    border-radius: 8px;
+    text-align: center;
+    /*禁止选择*/
+    -webkit-touch-callout: none;
+    /* iOS Safari */
+    -webkit-user-select: none;
+    /* Chrome/Safari/Opera */
+    -khtml-user-select: none;
+    /* Konqueror */
+    -moz-user-select: none;
+    /* Firefox */
+    -ms-user-select: none;
+    /* Internet Explorer/Edge */
+    user-select: none;
+    /* Non-prefixed version, currently not supported by any browser */
+  }
+</style>
+
+<body>
+  <div class="auto">
+    <video id="video" width="480" height="320" autoplay></video>
+    <canvas id="canvas" width="480" height="320" style="display: none;"></canvas>
+    <img src="./body_default.png" id="img" width="480" height="320" style="margin-left: 20px;">
+    <div>
+      <button id="capture" title="点击进行拍照">拍照</button>
+    </div>
+    <div>
+      <button id="recognizeFace" title="是否用这张图片进行验证" onclick="recognizeFace()">识别</button>
+      <button id="uploadFace" title="是否用这张图片进行验证" onclick="uploadFace()">上传人脸</button>
+    </div>
+  </div>
+
+
+  <script>
+    var file, videoStream;
+    var formData;
+    //访问用户媒体设备的兼容方法
+    function getUserMedia(constraints, success, error) {
+      if (navigator.mediaDevices.getUserMedia) {
+        //最新的标准API
+        navigator.mediaDevices.getUserMedia(constraints).then(success).catch(error);
+      } else if (navigator.webkitGetUserMedia) {
+        //webkit核心浏览器
+        navigator.webkitGetUserMedia(constraints, success, error)
+      } else if (navigator.mozGetUserMedia) {
+        //firfox浏览器
+        navigator.mozGetUserMedia(constraints, success, error);
+      } else if (navigator.getUserMedia) {
+        //旧版API
+        navigator.getUserMedia(constraints, success, error);
+      }
+    }
+
+    let videoTag = document.getElementById('video');
+    let canvas = document.getElementById('canvas');
+    // 拿到canvas的上下文对象
+    let context = canvas.getContext('2d');
+
+    function success(stream) {
+      //兼容webkit核心浏览器
+      let CompatibleURL = window.URL || window.webkitURL;
+      //将视频流设置为video元素的源
+      videoStream = stream;
+      videoTag.srcObject = stream;
+      videoTag.play();
+    }
+
+    function error(error) {
+      console.log(`访问用户媒体设备失败${error.name}, ${error.message}`);
+      alert(`访问用户媒体设备失败${error.name}, ${error.message}`);
+    }
+
+    if (navigator.mediaDevices.getUserMedia || navigator.getUserMedia || navigator.webkitGetUserMedia || navigator
+      .mozGetUserMedia) {
+      //调用用户媒体设备, 访问摄像头
+      getUserMedia({
+        video: {
+          width: 480,
+          height: 320
+        }
+      }, success, error);
+    } else {
+      alert('不支持访问用户媒体');
+    }
+    // base64转文件
+    document.getElementById('capture').addEventListener('click', function () {
+      context.drawImage(videoTag, 0, 0, 480, 320);
+      var imageData = context.getImageData(0, 0, canvas.width, canvas.height).data;
+      var imgArr = [];
+      formData = new FormData();
+      for (var i = 0; i < imageData.length; i += 4) {
+        imgArr.push(imageData[i], imageData[i + 1], imageData[i + 2])
+      }
+      // console.log(imgArr)
+      formData.append("data", imgArr);
+      // 获取图片base64链接
+      var image = canvas.toDataURL('image/png');
+      // console.log(typeof image);
+      // console.log(image);
+      // 定义一个img
+      var img = document.getElementById("img");
+      //设置img标签显示的图像
+      img.src = image;
+      formData.append("cols", img.width);
+      formData.append("rows", img.height);
+      formData.append("personName", "");
+
+      function dataURLtoFile(dataurl, filename) {
+        var arr = dataurl.split(','),
+          mime = arr[0].match(/:(.*?);/)[1],
+          bstr = atob(arr[1]),
+          n = bstr.length,
+          imgData = new Uint8Array(n);
+        while (n--) {
+          imgData[n] = bstr.charCodeAt(n);
+        }
+        file = new File([imgData], filename, {
+          type: mime
+        });
+        return new File([imgData], filename, {
+          type: mime
+        });
+      }
+      // var imageFile = dataURLtoFile(image, 'face.png')
+      // console.log(imageFile);
+    })
+
+    function recognizeFace() {
+      var date1 = new Date(); //开始时间
+      $.ajax({
+        type: "POST", // 数据提交类型
+        url: "http://localhost:8888/checkFace", // 发送地址
+        data: formData, //发送数据
+        async: true, // 是否异步
+        processData: false, //processData 默认为false，当设置为true的时候,jquery ajax 提交的时候不会序列化 data，而是直接使用data
+        contentType: false,
+        success: function (data) {
+          var date2 = new Date(); //结束时间
+          var date3 = date2.getTime() - date1.getTime() //时间差的毫秒数
+          console.log(date3)
+          console.log(`${data.message}`);
+          alert(data.message);
+        },
+        error: function (e) {
+          //self.$message.warning(`${e}`);
+          console.log("不成功" + e);
+        }
+      });
+      videoStream.getTracks()[0].stop(); //结束关闭流
+    }
+
+    function uploadFace() {
+      var personName = prompt("请输入你的名字", "");
+      if (personName) {
+        //输出word的格式
+        formData.append("personName", personName);
+        $.ajax({
+          type: "POST", // 数据提交类型
+          url: "http://localhost:8888/uploadFace", // 发送地址
+          data: formData, //发送数据
+          async: true, // 是否异步
+          processData: false, //processData 默认为false，当设置为true的时候,jquery ajax 提交的时候不会序列化 data，而是直接使用data
+          contentType: false,
+          success: function (data) {
+            console.log(`${data.message}`);
+            alert(data.message);
+          },
+          error: function (e) {
+            //self.$message.warning(`${e}`);
+            console.log("不成功" + e);
+          }
+        });
+        videoStream.getTracks()[0].stop(); //结束关闭流
+      }
+    }
+  </script>
+</body>
+
+</html>
